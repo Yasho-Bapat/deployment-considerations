@@ -36,7 +36,7 @@ Partial verification ECUs are expected to have the Root and Targets metadata pre
 
 **Figure 1.** *An arrangement that an OEM SHOULD use when using symmetric ECU keys.*
 
-ECUs are permitted to use either symmetric or asymmetric keys. This choice is effectively a performance vs. security trade-off. Symmetric keys allow for faster cryptographic operations, but expose a larger attack surface because the Director will need online access to the key. Asymmetric ECU keys are not affected by this problem, because the Director only needs access to the ECU's public key.
+ECUs are permitted to use either symmetric or asymmetric keys. This choice is effectively a performance vs. security trade-off. Symmetric keys allow for faster cryptographic operations, but expose a larger attack surface because the Director will need online access to the key. Asymmetric ECU keys SHOULD be cryptographically generated (e.g., IEEE 802.1AR and cryptographically verified (e.g., secure hash of the Public Key that is signed with the Private Key) before use in software update processes (see section 8.0.3).
 
 Basically, choosing symmetric keys increases the performance of the common case (checking signatures and decrypting images), but makes disaster recovery harder, because a compromised key server could require updating ECU keys on every vehicle.
 
