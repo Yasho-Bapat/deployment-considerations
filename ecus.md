@@ -13,6 +13,7 @@ To bootstrap an Uptane-capable ECU, a few things need to be provisioned into the
 * **A secure way to know what time it is**, so the ECU cannot be tricked into accepting expired metadata. The ECU must receive a fairly recent time as soon as it is powered on (or reset to factory settings) to prevent the possibility of freeze attacks.
 * **ECU key(s)**, to sign the ECU's [version reports](https://uptane.github.io/papers/uptane-standard.2.0.0.html#version_report), and optionally to decrypt images. These signing keys should be unique to the ECU, and the public keys will need to be stored in the Director repository's inventory database.
 * **Information about repository locations**, generally in the form of a [repository mapping file](https://uptane.github.io/papers/uptane-standard.2.0.0.html#repo_mapping_meta). This is a metadata file that tells the ECU the URIs of the repositories (if it is a Primary ECU), as well as which images should be fetched from which repository. (Images that are encrypted or customized per-device would generally come from the Director repository, and all others from the Image repository.)
+* **A strong, unique hardware identifier**, to identify itself to the director and inventory repositories (see section 8.0.3).
 
 
 ## ECU implementation choices
